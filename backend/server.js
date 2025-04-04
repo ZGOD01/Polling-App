@@ -26,6 +26,13 @@ connectDB()
 app.use("/api/v1/auth" , authRoutes)
 app.use("/api/v1/poll" , pollRoutes)
 
+app.get("/", (req, res) =>{
+    res.send({
+        activeStatus: "active",
+        errorMessage: "false",
+    })
+})
+
 app.use("/uploads", express.static(path.join(__dirname, 'uploads')));
 
 const PORT = process.env.PORT || 5000 ;
